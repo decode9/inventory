@@ -29,6 +29,7 @@ GET localhost:8080/category/{id}
    - Respuesta
       - id
       - name
+
 POST localhost:8080/category/save
   - Parametros
       - name (Requerido)
