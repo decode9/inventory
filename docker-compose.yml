@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+
+  spring-boot:
+    build: ./
+    container_name: inventory-service
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./:/tcw
+    networks:
+      - spring_net
+    ports:
+      - '8080:8080'
+    depends_on:
+      - dbpostgresql
+
+  dbpostgresql:
+    container_name: dbpostgresql
+    image: postgres:alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: inventory
+      POSTGRES_USER: inventory
+    networks:
+      - spring_net
+
+networks:
+  spring_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 201.4.4.1/24
