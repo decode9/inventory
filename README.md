@@ -2,6 +2,9 @@
 
 Aplicacion sencilla con spring boot para prueba de java y postgreSQL
 
+Para correr la aplicacion es necesario tener instalado docker-compose
+
+Para ejecutar la aplicacion ejecutar el comando docker-compose up -d
 
 End points de prueba
 
